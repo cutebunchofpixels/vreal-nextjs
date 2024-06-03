@@ -1,4 +1,6 @@
-export default function Home() {
-    return <main>Home page!</main>
+import { RedirectType, redirect } from "next/navigation"
+
+export default function Page() {
+    redirect("/currency", RedirectType.replace)
 }
 
