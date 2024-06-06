@@ -1,0 +1,19 @@
+.iconBlock {
+    display: grid;
+    place-items: center;
+    padding: 10px;
+}
+
+.dateSelector {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    :global {
+        .ant-picker {
+            width: 100%;
+        }
+    }
+}
+
