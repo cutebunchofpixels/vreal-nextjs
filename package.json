@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "antd": "^5.17.4",
+    "dayjs": "^1.11.11",
     "next": "^14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "sass": "^1.77.4"
+    "sass": "^1.77.4",
+    "secure-ls": "^1.2.6"
   },
   "devDependencies": {
     "@types/node": "^20",

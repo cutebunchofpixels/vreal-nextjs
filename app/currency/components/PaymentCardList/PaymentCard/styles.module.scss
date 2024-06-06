@@ -1,0 +1,46 @@
+.paymentCard {
+    padding-block: 8px;
+    padding-inline: 10px;
+    font-weight: 600;
+
+    :global {
+        .ant-card-body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 25px;
+            height: 100%;
+
+            &::before {
+                content: none;
+            }
+
+            &::after {
+                content: none;
+            }
+        }
+
+        .ant-typography {
+            line-height: 1.3;
+        }
+
+        .ant-statistic {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .ant-statistic-title {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.icon {
+    font-size: 36px;
+}
+
+.textBlock {
+    display: flex;
+    flex-direction: column;
+}
+
