@@ -23,13 +23,15 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <Layout className={styles.layout}>
-                    <Header />
-                    <Content>{children}</Content>
-                    <Footer />
-                </Layout>
-            </body>
+            <AntdRegistry>
+                <body className={inter.className}>
+                    <Layout className={styles.layout}>
+                        <Header />
+                        <Content>{children}</Content>
+                        <Footer />
+                    </Layout>
+                </body>
+            </AntdRegistry>
         </html>
     )
 }

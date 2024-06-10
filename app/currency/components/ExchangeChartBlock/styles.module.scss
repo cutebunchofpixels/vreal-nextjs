@@ -1,0 +1,13 @@
+.exchangeChartContainer {
+    :global {
+        .ant-card-body {
+            height: 550px;
+            width: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+        }
+    }
+}
+
