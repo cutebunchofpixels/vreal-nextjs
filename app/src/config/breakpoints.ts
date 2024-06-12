@@ -1,9 +1,11 @@
+import { Breakpoint } from "@/app/src/types/Breakpoint"
+
 export const breakpoints = {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-    xxl: 1600,
+    [Breakpoint.XS]: 0,
+    [Breakpoint.SM]: 576,
+    [Breakpoint.MD]: 768,
+    [Breakpoint.LG]: 992,
+    [Breakpoint.XL]: 1200,
+    [Breakpoint.XXL]: 1600,
 }
 

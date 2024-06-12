@@ -3,7 +3,7 @@ import { ShoppingOutlined } from "@ant-design/icons"
 
 import PaymentCard, {
     PaymentCardInfo,
-} from "@/app/currency/components/PaymentCardList/PaymentCard"
+} from "@/app/[breakpoint]/currency/components/PaymentCardList/PaymentCard"
 
 import styles from "./styles.module.scss"
 
