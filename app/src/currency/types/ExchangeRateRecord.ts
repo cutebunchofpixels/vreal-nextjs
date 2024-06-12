@@ -1,6 +1,6 @@
 import { Dayjs } from "dayjs"
 
-import { Currency } from "@/app/src/types/currency/Currency"
+import { Currency } from "@/app/src/currency/types/Currency"
 
 export interface ExchangeRateRecord {
     currency: Currency

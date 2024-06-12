@@ -2,7 +2,7 @@
 
 import { useState, createContext, useContext, ReactNode } from "react"
 import { CurrencyStore } from "@/app/src/currency/store/CurrencyStore."
-import { ExchangeRateRecord } from "@/app/src/types/currency/ExchangeRateRecord"
+import { ExchangeRateRecord } from "@/app/src/currency/types/ExchangeRateRecord"
 
 const CurrencyContext = createContext<CurrencyStore | null>(null)
 

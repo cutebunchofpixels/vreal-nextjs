@@ -1,7 +1,7 @@
 "use client"
 
 import { useCurrencyContext } from "@/app/src/currency/context/CurrencyContextProvider"
-import { ExchangeRateRecord } from "@/app/src/types/currency/ExchangeRateRecord"
+import { ExchangeRateRecord } from "@/app/src/currency/types/ExchangeRateRecord"
 import { serverDayjs } from "@/app/src/utils/dayjs"
 import { Line, Serie, Datum } from "@nivo/line"
 

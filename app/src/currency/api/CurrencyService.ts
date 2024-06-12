@@ -1,8 +1,8 @@
 import { Dayjs } from "dayjs"
 
-import { ExchangeRateDto } from "@/app/src/types/currency/dto/ExchangeRateDto"
-import { Currency } from "@/app/src/types/currency/Currency"
-import { ExchangeRateRecord } from "@/app/src/types/currency/ExchangeRateRecord"
+import { ExchangeRateDto } from "@/app/src/currency/types/dto/ExchangeRateDto"
+import { Currency } from "@/app/src/currency/types/Currency"
+import { ExchangeRateRecord } from "@/app/src/currency/types/ExchangeRateRecord"
 
 export class CurrencyExchangeService {
     private static baseUrl = process.env.NEXT_PUBLIC_CURRENCY_API_URL

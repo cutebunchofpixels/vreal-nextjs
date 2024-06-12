@@ -1,8 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx"
 
-import { Currency } from "@/app/src/types/currency/Currency"
-import { CurrencyExchangeService } from "@/app/src/api/currency/CurrencyService"
-import { ExchangeRateRecord } from "@/app/src/types/currency/ExchangeRateRecord"
+import { Currency } from "@/app/src/currency/types/Currency"
+import { CurrencyExchangeService } from "@/app/src/currency/api/CurrencyService"
+import { ExchangeRateRecord } from "@/app/src/currency/types/ExchangeRateRecord"
 import { serverDayjs } from "@/app/src/utils/dayjs"
 import { Dayjs } from "dayjs"
 
