@@ -1,16 +1,29 @@
-import React from "react"
-
 import ExchangeChartBlock from "@/app/currency/components/ExchangeChartBlock"
 import PaymentCardList from "@/app/currency/components/PaymentCardList"
+import { CurrencyExchangeService } from "@/app/src/api/currency/CurrencyService"
+import { Currency } from "@/app/src/types/currency/Currency"
+import { serverDayjs } from "@/app/src/utils/dayjs"
+import CurrencyContextProvider from "@/app/src/currency/context/CurrencyContextProvider"
+import PageTitle from "@/app/src/ui/PageTitle"
 
 import styles from "./styles.module.scss"
 
-export default function Currency() {
+export default async function CurrencyPage() {
+    const exchangeRates =
+        await CurrencyExchangeService.getExchangeRatesForPeriod(
+            Currency.UAH,
+            serverDayjs().subtract(1, "week").startOf("week"),
+            serverDayjs()
+        )
+
     return (
-        <div className={styles.currencyPage}>
-            <PaymentCardList />
-            <ExchangeChartBlock />
-        </div>
+        <CurrencyContextProvider exchangeRates={exchangeRates}>
+            <div className={styles.currencyPage}>
+                <PageTitle>Currency exchange</PageTitle>
+                <PaymentCardList />
+                <ExchangeChartBlock />
+            </div>
+        </CurrencyContextProvider>
     )
 }
 

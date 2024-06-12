@@ -1,7 +1,8 @@
 "use client"
 
-import { mockExchangeRates } from "@/app/currency/components/ExchangeChartBlock/ExchangeChart/mock"
+import { useCurrencyContext } from "@/app/src/currency/context/CurrencyContextProvider"
 import { ExchangeRateRecord } from "@/app/src/types/currency/ExchangeRateRecord"
+import { serverDayjs } from "@/app/src/utils/dayjs"
 import { Line, Serie, Datum } from "@nivo/line"
 
 function formatChartData(exchangeRates: ExchangeRateRecord[]) {
@@ -19,13 +20,15 @@ function formatChartData(exchangeRates: ExchangeRateRecord[]) {
     let counter = 1
 
     for (const record of exchangeRates) {
+        const formattedDate = serverDayjs(record.date).format("YYYY-MM-DD")
+
         usdSerie.data.push({
-            x: record.date.format("YYYY-MM-DD"),
+            x: formattedDate,
             y: 1 / record.exchangeRates.usd,
         })
 
         eurSerie.data.push({
-            x: record.date.format("YYYY-MM-DD"),
+            x: formattedDate,
             y: 1 / record.exchangeRates.eur,
         })
 
@@ -36,7 +39,10 @@ function formatChartData(exchangeRates: ExchangeRateRecord[]) {
 }
 
 export default function ExchangeChart() {
-    const chartData = formatChartData(mockExchangeRates)
+    const currencyStore = useCurrencyContext()
+    const { exchangeRates } = currencyStore
+
+    const chartData = formatChartData(exchangeRates)
 
     return (
         <Line
