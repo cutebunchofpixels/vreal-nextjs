@@ -3,7 +3,7 @@ import { makeAutoObservable, runInAction } from "mobx"
 import { Currency } from "@/app/src/currency/types/Currency"
 import { CurrencyExchangeService } from "@/app/src/currency/api/CurrencyService"
 import { ExchangeRateRecord } from "@/app/src/currency/types/ExchangeRateRecord"
-import { serverDayjs } from "@/app/src/utils/dayjs"
+import { serverDayjs } from "@/app/src/config/dayjs"
 import { Dayjs } from "dayjs"
 
 export class CurrencyStore {

@@ -2,7 +2,7 @@
 
 import { useCurrencyContext } from "@/app/src/currency/context/CurrencyContextProvider"
 import { ExchangeRateRecord } from "@/app/src/currency/types/ExchangeRateRecord"
-import { serverDayjs } from "@/app/src/utils/dayjs"
+import { serverDayjs } from "@/app/src/config/dayjs"
 import { Line, Serie, Datum } from "@nivo/line"
 
 function formatChartData(exchangeRates: ExchangeRateRecord[]) {
