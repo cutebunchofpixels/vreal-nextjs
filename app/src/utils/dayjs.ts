@@ -6,16 +6,35 @@ import isSameOrBefore from "dayjs/plugin/isSameOrBefore"
 import "dayjs/locale/en"
 import "dayjs/locale/he"
 
-import { inferSelectedLocale } from "./inferSelectedLocale"
+import { Singleton } from "@/app/src/types/Signleton"
+import { inferSelectedLocale } from "@/app/src/utils/inferSelectedLocale"
 
 baseDayJs.extend(utc)
 baseDayJs.extend(timezone)
 baseDayJs.extend(isSameOrAfter)
 baseDayJs.extend(isSameOrBefore)
-baseDayJs.tz.setDefault(baseDayJs.tz.guess())
 
-const locale = inferSelectedLocale()
-baseDayJs.locale(locale)
+class DayJSSingleton implements Singleton<typeof baseDayJs> {
+    private _instance: typeof baseDayJs | null = null
 
-export const dayjs = baseDayJs
+    public get instance(): typeof baseDayJs {
+        if (window === undefined) {
+            throw new Error("DayJS can only be used in client context")
+        }
+
+        if (this._instance === null) {
+            baseDayJs.tz.setDefault(baseDayJs.tz.guess())
+
+            const locale = inferSelectedLocale()
+            baseDayJs.locale(locale)
+
+            this._instance = baseDayJs
+        }
+
+        return this._instance
+    }
+}
+
+export const dayjs = new DayJSSingleton()
+export const serverDayjs = baseDayJs
 
