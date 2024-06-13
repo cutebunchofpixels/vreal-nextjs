@@ -1,10 +1,10 @@
 import ExchangeChartBlock from "@/src/app/[breakpoint]/currency/components/ExchangeChartBlock"
 import PaymentCardList from "@/src/app/[breakpoint]/currency/components/PaymentCardList"
+import PageTitle from "@/src/ui/PageTitle"
+import CurrencyContextProvider from "@/src/currency/context/CurrencyContextProvider"
 import { CurrencyExchangeService } from "@/src/currency/api/CurrencyService"
 import { Currency } from "@/src/currency/types/Currency"
 import { serverDayjs } from "@/src/config/dayjs"
-import CurrencyContextProvider from "@/src/currency/context/CurrencyContextProvider"
-import PageTitle from "@/src/ui/PageTitle"
 import { serverBreakpoints } from "@/src/config/breakpoints"
 
 import styles from "./styles.module.scss"
