@@ -9,6 +9,8 @@ import { serverBreakpoints } from "@/src/config/breakpoints"
 
 import styles from "./styles.module.scss"
 
+export const revalidate = 86400
+
 export default async function CurrencyPage() {
     const exchangeRates =
         await CurrencyExchangeService.getExchangeRatesForPeriod(
