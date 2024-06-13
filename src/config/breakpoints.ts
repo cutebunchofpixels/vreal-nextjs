@@ -9,3 +9,5 @@ export const breakpoints = {
     [Breakpoint.XXL]: 1600,
 }
 
+export const serverBreakpoints = [Breakpoint.XS, Breakpoint.MD, Breakpoint.LG]
+

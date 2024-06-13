@@ -5,7 +5,7 @@ import { Button, Form } from "antd"
 import { RightOutlined } from "@ant-design/icons"
 import { Dayjs } from "dayjs"
 
-import DateSelector from "@/app/[breakpoint]/currency/components/ExchangeIntervalFormBlock/ExchangeIntervalForm/DateSelector"
+import DateSelector from "@/src/app/[breakpoint]/currency/components/ExchangeIntervalFormBlock/ExchangeIntervalForm/DateSelector"
 
 import styles from "./styles.module.scss"
 

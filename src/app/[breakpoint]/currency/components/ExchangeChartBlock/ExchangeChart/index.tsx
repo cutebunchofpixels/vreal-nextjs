@@ -1,10 +1,12 @@
 "use client"
 
+import { Line, Serie, Datum } from "@nivo/line"
+
 import { useCurrencyContext } from "@/src/currency/context/CurrencyContextProvider"
 import { ExchangeRateRecord } from "@/src/currency/types/ExchangeRateRecord"
 import { serverDayjs } from "@/src/config/dayjs"
-import { Line, Serie, Datum } from "@nivo/line"
 import { useBreakpoint } from "@/src/hooks/useBreakpoint"
+import { chartBreakpoints } from "@/src/app/[breakpoint]/currency/components/ExchangeChartBlock/ExchangeChart/config"
 
 function formatChartData(exchangeRates: ExchangeRateRecord[]) {
     const usdSerie: Serie & { data: Datum[] } = {
@@ -43,17 +45,16 @@ export default function ExchangeChart() {
     const currencyStore = useCurrencyContext()
     const { exchangeRates } = currencyStore
     const breakpoint = useBreakpoint()
+    const breakpointConfig = chartBreakpoints[breakpoint]
 
     const chartData = formatChartData(exchangeRates)
 
-    console.log("CHART COMPONENT", breakpoint)
-
     return (
         <Line
-            height={500}
-            width={920}
+            height={400}
+            width={breakpointConfig.width}
             data={chartData}
-            margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+            margin={{ top: 50, right: 70, bottom: 100, left: 60 }}
             xScale={{ type: "point" }}
             yScale={{
                 type: "linear",
@@ -67,9 +68,9 @@ export default function ExchangeChart() {
             axisBottom={{
                 tickSize: 5,
                 tickPadding: 5,
-                tickRotation: 0,
+                tickRotation: breakpointConfig.tickRotation,
                 legend: "Date",
-                legendOffset: 36,
+                legendOffset: breakpointConfig.legendOffset,
                 legendPosition: "middle",
                 truncateTickAt: 0,
             }}
@@ -90,32 +91,36 @@ export default function ExchangeChart() {
             pointLabelYOffset={-12}
             useMesh={true}
             isInteractive={false}
-            legends={[
-                {
-                    anchor: "bottom-right",
-                    direction: "column",
-                    justify: false,
-                    translateX: 100,
-                    translateY: 0,
-                    itemsSpacing: 0,
-                    itemDirection: "left-to-right",
-                    itemWidth: 80,
-                    itemHeight: 20,
-                    itemOpacity: 0.75,
-                    symbolSize: 12,
-                    symbolShape: "circle",
-                    symbolBorderColor: "rgba(0, 0, 0, .5)",
-                    effects: [
-                        {
-                            on: "hover",
-                            style: {
-                                itemBackground: "rgba(0, 0, 0, .03)",
-                                itemOpacity: 1,
-                            },
-                        },
-                    ],
-                },
-            ]}
+            legends={
+                breakpointConfig.isLegendVisible
+                    ? [
+                          {
+                              anchor: "bottom-right",
+                              direction: "column",
+                              justify: false,
+                              translateX: 100,
+                              translateY: 0,
+                              itemsSpacing: 0,
+                              itemDirection: "left-to-right",
+                              itemWidth: 80,
+                              itemHeight: 20,
+                              itemOpacity: 0.75,
+                              symbolSize: 12,
+                              symbolShape: "circle",
+                              symbolBorderColor: "rgba(0, 0, 0, .5)",
+                              effects: [
+                                  {
+                                      on: "hover",
+                                      style: {
+                                          itemBackground: "rgba(0, 0, 0, .03)",
+                                          itemOpacity: 1,
+                                      },
+                                  },
+                              ],
+                          },
+                      ]
+                    : undefined
+            }
         />
     )
 }

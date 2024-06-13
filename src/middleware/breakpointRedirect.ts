@@ -6,7 +6,7 @@ export const PUBLIC_FILE_REGEX = /\.(.*)$/
 
 export function getViewportFromUserAgent(userAgent: string | null): Breakpoint {
     if (!userAgent) {
-        return Breakpoint.LG
+        return Breakpoint.XXL
     }
 
     const device = new MobileDetect(userAgent)
@@ -22,6 +22,6 @@ export function getViewportFromUserAgent(userAgent: string | null): Breakpoint {
         return Breakpoint.MD
     }
 
-    return Breakpoint.LG
+    return Breakpoint.XXL
 }
 

@@ -5,6 +5,7 @@ import { Currency } from "@/src/currency/types/Currency"
 import { serverDayjs } from "@/src/config/dayjs"
 import CurrencyContextProvider from "@/src/currency/context/CurrencyContextProvider"
 import PageTitle from "@/src/ui/PageTitle"
+import { serverBreakpoints } from "@/src/config/breakpoints"
 
 import styles from "./styles.module.scss"
 
@@ -25,5 +26,11 @@ export default async function CurrencyPage() {
             </div>
         </CurrencyContextProvider>
     )
+}
+
+export function generateStaticParams() {
+    return serverBreakpoints.map((breakpoint) => ({
+        breakpoint,
+    }))
 }
 
