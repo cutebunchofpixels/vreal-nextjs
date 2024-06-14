@@ -1,6 +1,6 @@
 import { Card } from "antd"
 
-import ExchangeIntervalForm from "@/src/app/[breakpoint]/currency/components/ExchangeIntervalFormBlock/ExchangeIntervalForm"
+import ExchangeIntervalForm from "@/src/components/currency/ExchangeIntervalFormBlock/ExchangeIntervalForm"
 
 export default function ExchangeIntervalSelectorsBlock() {
     return (

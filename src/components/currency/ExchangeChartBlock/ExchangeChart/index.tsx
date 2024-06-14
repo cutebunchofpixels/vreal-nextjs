@@ -6,7 +6,7 @@ import { useCurrencyContext } from "@/src/currency/context/CurrencyContextProvid
 import { ExchangeRateRecord } from "@/src/currency/types/ExchangeRateRecord"
 import { serverDayjs } from "@/src/config/dayjs"
 import { useBreakpoint } from "@/src/hooks/useBreakpoint"
-import { chartBreakpoints } from "@/src/app/[breakpoint]/currency/components/ExchangeChartBlock/ExchangeChart/config"
+import { chartBreakpoints } from "@/src/components/currency/ExchangeChartBlock/ExchangeChart/config"
 
 function formatChartData(exchangeRates: ExchangeRateRecord[]) {
     const usdSerie: Serie & { data: Datum[] } = {

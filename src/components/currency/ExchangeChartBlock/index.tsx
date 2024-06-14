@@ -1,4 +1,4 @@
-import ExchangeChart from "@/src/app/[breakpoint]/currency/components/ExchangeChartBlock/ExchangeChart"
+import ExchangeChart from "@/src/components/currency/ExchangeChartBlock/ExchangeChart"
 import { Card } from "antd"
 
 import styles from "./styles.module.scss"
