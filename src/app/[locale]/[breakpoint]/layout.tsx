@@ -16,6 +16,7 @@ export default function BreakpointLayout({
     params,
 }: BreakpointLayoutProps) {
     const { breakpoint } = params
+    console.log(params)
 
     return (
         <BreakpointProvider initialBreakpoint={breakpoint}>
@@ -23,3 +24,4 @@ export default function BreakpointLayout({
         </BreakpointProvider>
     )
 }
+

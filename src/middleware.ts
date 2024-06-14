@@ -1,19 +1,29 @@
 import { NextRequest, NextResponse } from "next/server"
 
 import {
-    PUBLIC_FILE_REGEX,
+    getLocaleFromRequest,
     getViewportFromUserAgent,
-} from "@/src/middleware/breakpointRedirect"
+    pathnameHasLocale,
+} from "@/src/middlewares"
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+    const pathname = request.nextUrl.pathname
+
+    if (pathnameHasLocale(pathname)) {
+        return
+    }
+
     const breakpoint = getViewportFromUserAgent(
         request.headers.get("user-agent")
     )
+    const locale = getLocaleFromRequest(request)
 
-    if (!PUBLIC_FILE_REGEX.test(request.nextUrl.pathname)) {
-        const url = request.nextUrl.clone()
-        url.pathname = `/${breakpoint}${request.nextUrl.pathname}`
-        return NextResponse.rewrite(url)
-    }
+    const newPath = `${locale}/${breakpoint}/${pathname}`
+
+    return NextResponse.redirect(new URL(newPath, request.url))
+}
+
+export const config = {
+    matcher: ["/((?!_next).*)"],
 }
 
