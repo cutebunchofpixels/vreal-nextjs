@@ -1,5 +1,5 @@
 export enum Locale {
-    English = "en-US",
-    Hebrew = "he-IL",
+    English = "en",
+    Hebrew = "he",
 }
 

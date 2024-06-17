@@ -4,7 +4,7 @@ import enUS from "antd/locale/en_US"
 import { Locale } from "@/src/types/Locale"
 
 export const PREFERED_THEME_KEY = "preferredTheme"
-export const SELECTED_LOCALE_KEY = "selectedLocale"
+export const SELECTED_LOCALE_KEY = "NEXT_LOCALE"
 export const locales = {
     [Locale.English]: enUS,
     [Locale.Hebrew]: heIL,
