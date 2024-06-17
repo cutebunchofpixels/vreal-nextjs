@@ -5,6 +5,7 @@ import {
     getViewportFromUserAgent,
     pathnameHasLocale,
 } from "@/src/middlewares"
+import { SELECTED_LOCALE_KEY } from "@/src/config/constants"
 
 export async function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname
@@ -16,9 +17,16 @@ export async function middleware(request: NextRequest) {
     const breakpoint = getViewportFromUserAgent(
         request.headers.get("user-agent")
     )
-    const locale = getLocaleFromRequest(request)
 
-    const newPath = `${locale}/${breakpoint}/${pathname}`
+    const persistedLocale = request.cookies.get(SELECTED_LOCALE_KEY)?.value
+    let newPath = `${breakpoint}/${pathname}`
+
+    if (!persistedLocale) {
+        const localeFromRequest = getLocaleFromRequest(request)
+        newPath = `${localeFromRequest}/${breakpoint}/${pathname}`
+    } else {
+        newPath = `${persistedLocale}/${breakpoint}/${pathname}`
+    }
 
     return NextResponse.redirect(new URL(newPath, request.url))
 }
