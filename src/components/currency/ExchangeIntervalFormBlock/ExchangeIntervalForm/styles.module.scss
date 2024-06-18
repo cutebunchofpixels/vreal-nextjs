@@ -1,12 +1,12 @@
 @use "abstracts";
 
 .dateSelectorsForm {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr;
     gap: 20px;
 
     @include abstracts.mixins-respond(md) {
-        grid-template-columns: 1fr 1fr auto;
+        grid-template-columns: 1fr 1fr auto !important;
     }
 
     :global {

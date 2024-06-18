@@ -4,4 +4,7 @@ import { Locale } from "@/src/types/Locale"
 export interface CurrencyPagePathParams {
     breakpoint: Breakpoint
     locale: Locale
+    startDate: string
+    endDate: string
 }
+

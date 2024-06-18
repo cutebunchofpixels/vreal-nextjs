@@ -3,6 +3,7 @@ import utc from "dayjs/plugin/utc"
 import timezone from "dayjs/plugin/timezone"
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter"
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore"
+import isBetween from "dayjs/plugin/isBetween"
 import "dayjs/locale/en"
 import "dayjs/locale/he"
 
@@ -13,6 +14,7 @@ baseDayJs.extend(utc)
 baseDayJs.extend(timezone)
 baseDayJs.extend(isSameOrAfter)
 baseDayJs.extend(isSameOrBefore)
+baseDayJs.extend(isBetween)
 
 class DayJSSingleton implements Singleton<typeof baseDayJs> {
     private _instance: typeof baseDayJs | null = null
