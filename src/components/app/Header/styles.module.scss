@@ -1,4 +1,7 @@
 .header {
     background-color: var(--layout-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 

@@ -1,9 +1,9 @@
 import { Locale } from "@/src/types/Locale"
 import { SELECTED_LOCALE_KEY } from "@/src/config/constants"
-import { getCookie } from "@/src/utils/cookies"
+import Cookies from "js-cookie"
 
 export function inferSelectedLocale(): Locale {
-    const persistedLocale = getCookie(SELECTED_LOCALE_KEY)
+    const persistedLocale = Cookies.get(SELECTED_LOCALE_KEY)
 
     if (!persistedLocale) {
         return Locale.English

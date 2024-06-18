@@ -16,6 +16,7 @@
     "antd": "^5.17.4",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
+    "js-cookie": "^3.0.5",
     "mobile-detect": "^1.4.5",
     "mobx": "^6.12.3",
     "mobx-react-lite": "^4.0.7",
@@ -27,6 +28,7 @@
     "secure-ls": "^1.2.6"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",

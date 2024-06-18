@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx"
 
 import { Locale } from "@/src/types/Locale"
 import { SELECTED_LOCALE_KEY } from "@/src/config/constants"
-import { setCookie } from "@/src/utils/cookies"
+import Cookies from "js-cookie"
 
 export class OptionsStore {
     constructor() {
@@ -13,7 +13,7 @@ export class OptionsStore {
 
     setLocale(locale: Locale) {
         this.locale = locale
-        setCookie(SELECTED_LOCALE_KEY, locale)
+        Cookies.set(SELECTED_LOCALE_KEY, locale)
     }
 
     hydrate(locale: Locale) {
