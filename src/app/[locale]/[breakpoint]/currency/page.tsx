@@ -30,9 +30,3 @@ export default async function CurrencyPage() {
     )
 }
 
-export function generateStaticParams() {
-    return serverBreakpoints.map((breakpoint) => ({
-        breakpoint,
-    }))
-}
-

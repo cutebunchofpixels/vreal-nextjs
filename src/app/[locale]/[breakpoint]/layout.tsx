@@ -1,3 +1,4 @@
+import { serverBreakpoints } from "@/src/config/breakpoints"
 import { BreakpointProvider } from "@/src/hooks/useBreakpoint"
 import { Breakpoint } from "@/src/types/Breakpoint"
 import { ReactNode } from "react"
@@ -22,5 +23,11 @@ export default function BreakpointLayout({
             {children}
         </BreakpointProvider>
     )
+}
+
+export function generateStaticParams() {
+    return serverBreakpoints.map((breakpoint) => ({
+        breakpoint,
+    }))
 }
 
