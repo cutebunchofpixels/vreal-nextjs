@@ -1,5 +1,14 @@
 {
     "currency": {
-        "page_name": "Currency exchange"
+        "page_name": "Currency exchange",
+        "payment_cards": {
+            "total_revenue": "Total revenue",
+            "average_payment": "Average payment",
+            "repeat_purchase_rate": "Repeat purchase rate"
+        },
+        "exchange_chart": {
+            "date_axis": "Date",
+            "exchange_axis": "Exchange rates"
+        }
     }
 }

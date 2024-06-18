@@ -7,6 +7,7 @@ import { ExchangeRateRecord } from "@/src/currency/types/ExchangeRateRecord"
 import { serverDayjs } from "@/src/config/dayjs"
 import { useBreakpoint } from "@/src/hooks/useBreakpoint"
 import { chartBreakpoints } from "@/src/components/currency/ExchangeChartBlock/ExchangeChart/config"
+import { useTranslation } from "@/src/options/context/TranslationProvider"
 
 function formatChartData(exchangeRates: ExchangeRateRecord[]) {
     const usdSerie: Serie & { data: Datum[] } = {
@@ -46,6 +47,7 @@ export default function ExchangeChart() {
     const { exchangeRates } = currencyStore
     const breakpoint = useBreakpoint()
     const breakpointConfig = chartBreakpoints[breakpoint]
+    const t = useTranslation()
 
     const chartData = formatChartData(exchangeRates)
 
@@ -69,7 +71,7 @@ export default function ExchangeChart() {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: breakpointConfig.tickRotation,
-                legend: "Date",
+                legend: t("currency.exchange_chart.date_axis"),
                 legendOffset: breakpointConfig.legendOffset,
                 legendPosition: "middle",
                 truncateTickAt: 0,
@@ -78,7 +80,7 @@ export default function ExchangeChart() {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: "Exchange rates",
+                legend: t("currency.exchange_chart.exchange_axis"),
                 legendOffset: -40,
                 legendPosition: "middle",
                 truncateTickAt: 0,

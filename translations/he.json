@@ -1,5 +1,14 @@
 {
     "currency": {
-        "page_name": "Currency exchange in Hebrew"
+        "page_name": "המרת מטבע",
+        "payment_cards": {
+            "total_revenue": "סך ההכנסות",
+            "average_payment": "תשלום ממוצע",
+            "repeat_purchase_rate": "שיעור רכישה חוזרת"
+        },
+        "exchange_chart": {
+            "date_axis": "תאריך",
+            "exchange_axis": "שערי חליפין"
+        }
     }
 }
